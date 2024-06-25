@@ -1,0 +1,37 @@
+<perf-preset-create>
+        <preset>1m_waffinity</preset>
+        <comment>This is an Archiver Preset</comment>
+        <privilege>diagnostic</privilege>
+        <is-archive-enabled>true</is-archive-enabled>
+        <preset-detail-infos>
+            <preset-detail-info>
+                <object>affinity</object>
+                <sample-period>1m</sample-period>
+                <counter-set>
+                    <counter>num_msgs_avg</counter>
+                    <counter>avg_wait_time</counter>
+                    <counter>cpu_usec</counter>
+                    <counter>num_sched_rate</counter>
+                </counter-set>
+            </preset-detail-info>
+            <preset-detail-info>
+                <object>waffi_per_msg</object>
+                <sample-period>1m</sample-period>
+                <counter-set>
+                    <counter>permsg_cpu_avg</counter>
+                    <counter>permsg_wait_avg</counter>
+                    <counter>cpu_rate</counter>
+                    <counter>num_msgs_rate</counter>
+                </counter-set>
+            </preset-detail-info>
+      <preset-detail-info>
+                <object>wafl</object>
+                <sample-period>1m</sample-period>
+                <counter-set>
+                    <counter>avg_wafl_msg_latency</counter>
+                    <counter>new_msg_cnt</counter>
+                    <counter>restart_msg_cnt</counter>
+                </counter-set>
+            </preset-detail-info>
+        </preset-detail-infos>
+    </perf-preset-create>
