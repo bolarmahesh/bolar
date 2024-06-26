@@ -1,10 +1,10 @@
-ngsh -c "set d;date;qos statistics volume latency show -vserver * -volume vol1 -iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos-latency.txt &
-ngsh -c "set d;date;qos statistics volume performance show -vserver * -volume vol1 -iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos-performance.txt &
+ngsh -c "set d;date;qos statistics volume latency show -vserver svm1 -volume vol1 -iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos-latency.txt &
+ngsh -c "set d;date;qos statistics volume performance show -vserver svm1 -volume vol1 -iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos-performance.txt &
 
 ngsh -c "set d; statistics show-periodic -interval 1 -iterations 5 -object workload_volume -instance vol1-* -counter write_ops|write_data|ops|write_latency|latency|other_ops|read_ops|read_data|read_latency|total_data" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-workload_volume.txt &
 ngsh -c "set d; statistics show-periodic -interval 1 -iterations 5 -object volume -instance vol1 -counter write_ops|write_data|ops|write_latency|latency|other_ops|read_ops|read_data|read_latency|total_data" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-volume.txt &
 
-ngsh -c "set d;date;qos statistics workload resource cpu show -node *-iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos.resource.txt &
+ngsh -c "set d;date;qos statistics workload resource cpu show -node * -iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos.resource.txt &
 ngsh -c "set d;date;qos statistics volume resource cpu show -node * -iterations 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-qos.vol-resource.txt &
 
 ngsh -c "set d;date;node run -node * -command sysstat -c 5 1" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-sysstat_1.txt &
