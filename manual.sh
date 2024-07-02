@@ -16,3 +16,4 @@ ngsh -c "set d;date;node run -node * -command wafltop show -v cpu,io -i 3 -n 10"
 ngsh -c "set d;date;node run -node * -command wafl_susp -w;node run -node * -command wafl_susp -z;sleep 30;node run -node * -command wafl_susp -w" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-waflsusp.txt &
 ngsh -c "set d;date;node run -node * -command waffinity_stats;node run -node * -command waffinity_stats -z;sleep 30;node run -node * -command waffinity_stats" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-waffinity.txt &
 ngsh -c "set d;date;node run -node * -command ps;node run -node * -command ps -z;sleep 30;node run -node * -command ps -c 5" >> /mroot/etc/crash/"$(date +"%Y_%m_%d_%I_%M_%p")"-ps.txt &
+ngsh -c "set d;date;echo "collecting 30 seconds data.....Wait untill script collection is complete....Do not pres any keys";sleep 30;date"
